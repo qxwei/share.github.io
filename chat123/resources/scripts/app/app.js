@@ -46,7 +46,7 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
                     name: 'MetronicApp',
                     insertBefore: '#ng_load_plugins_before', 
                     files: [
-                        'http://www.weiqinxue.cn/resources/css/dashboard.css',  
+                        'https://qxwei.github.io/chat123/resources/css/dashboard.css',  
 //                       './resources/scripts/lib/jquery.qqFace.js',
                         'https://qxwei.github.io/chat123/resources/scripts/lib/sockjs-0.3.4.js',
                         'https://qxwei.github.io/chat123/resources/scripts/lib/stomp.min.js',
