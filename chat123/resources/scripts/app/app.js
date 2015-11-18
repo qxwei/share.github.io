@@ -48,11 +48,11 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
                     files: [
                         'http://www.weiqinxue.cn/resources/css/dashboard.css',  
 //                       './resources/scripts/lib/jquery.qqFace.js',
-                        '//www.weiqinxue.cn/resources/scripts/lib/sockjs-0.3.4.js',
-                        '//www.weiqinxue.cn/resources/scripts/lib/stomp.min.js',
-                        '//www.weiqinxue.cn/resources/scripts/chat.js',
-                        '//www.weiqinxue.cn/resources/scripts/commonModel.js',
-                        '//www.weiqinxue.cn/resources/scripts/app/controllers/HallController.js'
+                        'https://qxwei.github.io/chat123/resources/scripts/lib/sockjs-0.3.4.js',
+                        'https://qxwei.github.io/chat123/resources/scripts/lib/stomp.min.js',
+                        'https://qxwei.github.io/chat123/resources/scripts/chat.js',
+                        'https://qxwei.github.io/chat123/resources/scripts/commonModel.js',
+                        'https://qxwei.github.io/chat123/resources/scripts/app/controllers/HallController.js'
                     ] 
                 });
             }]
