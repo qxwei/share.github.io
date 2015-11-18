@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-10-27 23:46:05 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.earth.entity.User" table="USER">
+        <id name="UserID" type="java.lang.Integer">
+            <column name="USERID" />
+            <generator class="assigned" />
+        </id>
+        <property name="UserName" type="java.lang.String">
+            <column name="USERNAME" />
+        </property>
+        <property name="Password" type="java.lang.String">
+            <column name="PASSWORD" />
+        </property>
+        <property name="Email" type="java.lang.String">
+            <column name="EMAIL" />
+        </property>
+        <property name="Avatar" type="java.lang.String">
+            <column name="AVATAR" />
+        </property>
+        <property name="UserType" type="java.lang.Integer">
+            <column name="USERTYPE" />
+        </property>
+        <property name="CreateTime" type="java.util.Date">
+            <column name="CREATETIME" />
+        </property>
+        <property name="Position" type="java.lang.String">
+            <column name="POSITION" />
+        </property>
+        <property name="Signature" type="java.lang.String">
+            <column name="SIGNATURE" />
+        </property>
+        <property name="IPAddress" type="java.lang.String">
+            <column name="IPADDRESS" />
+        </property>
+        <property name="LastActiveTime" type="java.lang.String">
+            <column name="LASTACTIVETIME" />
+        </property>
+        <property name="IsActive" type="java.lang.Integer">
+            <column name="ISACTIVE" />
+        </property>
+        <property name="Coordinate" type="java.lang.String">
+            <column name="COORDINATE" />
+        </property>
+    </class>
+</hibernate-mapping>

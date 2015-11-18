@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-11-5 14:18:08 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="com.earth.entity.Msg" table="msghistory">
+		<id name="MsgHistoryID" type="java.lang.Integer">
+			<column name="MSGHISTORYID" />
+			<generator class="native" />
+		</id>
+		<property name="Recipient" type="java.lang.String">
+			<column name="RECIPIENT" />
+		</property>
+		<property name="msg" type="java.lang.String">
+			<column name="MSG" />
+		</property>
+		<property name="msgType">
+			<column name="MSGTYPE" />
+			<type name="org.hibernate.type.EnumType">
+				<param name="type">12</param>
+				<param name="enumClass">com.earth.infrastructure.BaseData$MsgType</param>
+			</type>
+		</property>
+		<property name="coordinate" type="java.lang.String">
+			<column name="Coordinate" />
+		</property>
+		<property name="createTime" type="java.util.Date">
+			<column name="CREATETIME" />
+		</property>
+		<property name="sender" type="java.lang.String">
+			<column name="SENDER" />
+		</property>
+		<property name="extension" type="java.lang.String">
+			<column name="extension" />
+		</property>
+
+	</class>
+</hibernate-mapping>
