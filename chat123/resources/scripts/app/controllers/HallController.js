@@ -277,7 +277,7 @@ MetronicApp.controller('HallController', function($rootScope, $scope, $http, $ti
     $http({method: 'GET', url: './Index/Hall'}).
     success(function(data, status, headers, config) {
     	$scope.User = data;
-    	$timeout(function(){enterNewSession(true);}, 2000);
+    	$timeout(function(){enterNewSession(true);}, 4000);
     }).
     error(function(data, status, headers, config){});
     
@@ -389,7 +389,7 @@ MetronicApp.controller('HallController', function($rootScope, $scope, $http, $ti
     	catch(err)
     	{
     		console.info('enterNewSession fail,try agian.');
-    		console.info(err);
+    		console.error(err);
     		enterNewSession(isLoadHistory,isInform)
     	}
     }
