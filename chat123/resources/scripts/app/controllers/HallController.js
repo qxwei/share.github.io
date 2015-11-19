@@ -277,7 +277,7 @@ MetronicApp.controller('HallController', function($rootScope, $scope, $http, $ti
     $http({method: 'GET', url: './Index/Hall'}).
     success(function(data, status, headers, config) {
     	$scope.User = data;
-    	$timeout(function() {enterNewSession(true)}, 10000);
+    	$timeout(function() {enterNewSession(true)}, 2000);
     }).
     error(function(data, status, headers, config){});
     
