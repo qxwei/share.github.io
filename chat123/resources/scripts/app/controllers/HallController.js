@@ -238,7 +238,7 @@ MetronicApp.controller('HallController', function($rootScope, $scope, $http, $ti
 			tempMsg.msgType='Offline';
 		    $scope.showMsgList.push(tempMsg); 
 		    $scope.enabledisconnect = false;
-    	}, 20000);
+    	}, 15000);
     	
     }
     //断开当前匿名聊天
@@ -277,10 +277,9 @@ MetronicApp.controller('HallController', function($rootScope, $scope, $http, $ti
     $http({method: 'GET', url: './Index/Hall'}).
     success(function(data, status, headers, config) {
     	$scope.User = data;
-    	$timeout(function() {enterNewSession(true)}, 2000);
+    	$timeout(function(){enterNewSession(true);}, 2000);
     }).
     error(function(data, status, headers, config){});
-    
     
     //离开页面时的清理工作
 	window.onbeforeunload=function(){
@@ -356,35 +355,43 @@ MetronicApp.controller('HallController', function($rootScope, $scope, $http, $ti
     //进入新的会话
     function enterNewSession(isLoadHistory,isInform)
     {
-    	var newsubscribeObj = {
-        		subscribeUrl:$scope.currentSubscribe,
-        		MsgList:[],
-        		subscribeObj:{}
-        }
-    	if(isLoadHistory==null)isLoadHistory=false;
-    	if(isInform==null)isInform = true;
-    	newsubscribeObj.subscribeObj = core.Subscribe($scope.currentSubscribe,$scope.saveAndRenderMsg);
-    	 $scope.subscribeObj = newsubscribeObj.subscribeObj;
-    	if(isLoadHistory)
-    	{
-	    	//加载大厅历史聊天
-	    	$scope.getHistory($scope.currentSubscribe);
-    	}
-    	$scope.subscribeList.push(newsubscribeObj);
-    	//上线通知，设置会话组
-    	if(isInform)
-		{
-			$scope.Msg.coordinate = $scope.User.coordinate;
-			$scope.Msg.recipient = $scope.currentSubscribe;
-			if($scope.User.userType == UserType.Anonymous)
+    	try{
+	    	var newsubscribeObj = {
+	        		subscribeUrl:$scope.currentSubscribe,
+	        		MsgList:[],
+	        		subscribeObj:{}
+	        }
+	    	if(isLoadHistory==null)isLoadHistory=false;
+	    	if(isInform==null)isInform = true;
+	    	newsubscribeObj.subscribeObj = core.Subscribe($scope.currentSubscribe,$scope.saveAndRenderMsg);
+	    	 $scope.subscribeObj = newsubscribeObj.subscribeObj;
+	    	if(isLoadHistory)
+	    	{
+		    	//加载大厅历史聊天
+		    	$scope.getHistory($scope.currentSubscribe);
+	    	}
+	    	$scope.subscribeList.push(newsubscribeObj);
+	    	//上线通知，设置会话组
+	    	if(isInform)
 			{
-				$scope.Msg.msg = $scope.User.userName+'('+$scope.User.ipaddress+')进入了'+$scope.navtext+'。';
-				$scope.Msg.sender = $scope.User.userName+'('+$scope.User.ipaddress+')';
+				$scope.Msg.coordinate = $scope.User.coordinate;
+				$scope.Msg.recipient = $scope.currentSubscribe;
+				if($scope.User.userType == UserType.Anonymous)
+				{
+					$scope.Msg.msg = $scope.User.userName+'('+$scope.User.ipaddress+')进入了'+$scope.navtext+'。';
+					$scope.Msg.sender = $scope.User.userName+'('+$scope.User.ipaddress+')';
+				}
+				else
+				{} 
+				core.Send(angular.toJson($scope.Msg),config.dispatcherAddress);
 			}
-			else
-			{} 
-			core.Send(angular.toJson($scope.Msg),config.dispatcherAddress);
-		}
+    	}
+    	catch(err)
+    	{
+    		console.info('enterNewSession fail,try agian.');
+    		console.info(err);
+    		enterNewSession(isLoadHistory,isInform)
+    	}
     }
     //处理会话切换
     function handleSwitchRoom(toAddress,fromAddress,oldnavtext,isAnonymousPair)
