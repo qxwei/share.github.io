@@ -11,6 +11,10 @@ function initview()
 		$('.chatmsg').height(height*0.7-56);
 		$('#chatinput').height(height*0.3);
 		});
+	 $('.emotion').qqFace({ 
+	        assign:'chatinput', //给输入框赋值 
+	        path:'https://qxwei.github.io/chat123/resources/img/face/'    //表情图片存放的路径 
+	    });
 }
 MetronicApp.controller('HallController', function($rootScope, $scope, $http, $timeout) {
 	initview();

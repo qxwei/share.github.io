@@ -52,6 +52,7 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
                         'https://qxwei.github.io/chat123/resources/scripts/lib/stomp.min.js',
                         'https://qxwei.github.io/chat123/resources/scripts/chat.js',
                         'https://qxwei.github.io/chat123/resources/scripts/commonModel.js',
+                        'https://qxwei.github.io/chat123/resources/scripts/lib/jquery.qqFace.js',
                         'https://qxwei.github.io/chat123/resources/scripts/app/controllers/HallController.js'
                     ] 
                 });
