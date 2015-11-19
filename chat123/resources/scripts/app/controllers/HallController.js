@@ -390,7 +390,7 @@ MetronicApp.controller('HallController', function($rootScope, $scope, $http, $ti
     	{
     		console.info('enterNewSession fail,try agian.');
     		console.error(err);
-    	//	enterNewSession(isLoadHistory,isInform)
+    		$timeout(function(){enterNewSession(isLoadHistory,isInform);}, 4000);
     	}
     }
     //处理会话切换
