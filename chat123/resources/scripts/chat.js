@@ -15,12 +15,13 @@ chatCore.prototype.Connect = function() {
 //	if(commandRenderFun==null) commandRenderFun = this.defultRenderFun;
 	var isConnected = this.isConnected;
 	var stompClient = this.stompClient;
+	var that = this;
 	this.stompClient.connect("", "", function(frame) {
 		isConnected = true;
 //		stompClient.subscribe(commandUrl, commandRenderFun);
 	},function(){
 		console.log( "Lost server connect,try again！");
-		this.Connect();
+		that.Connect();
 	});
 };
 //订阅
