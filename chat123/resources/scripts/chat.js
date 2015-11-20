@@ -7,7 +7,7 @@ var chatCore = function(connectUrl, subscribeUrl,isDebug) {
 	this.stompClient=null;
 };
 //连接
-chatCore.prototype.Connect = function() {
+chatCore.prototype.Connect = function(lostConnextCalkback) {
 	if (this.isConnected)
 		return;
 	var socket = new SockJS(this.connectUrl);
@@ -22,6 +22,7 @@ chatCore.prototype.Connect = function() {
 	},function(){
 		console.log( "Lost server connect,try again！");
 		that.Connect();
+		typeof lostConnextCalkback === "function" ? lostConnextCalkback() : void 0;
 	});
 };
 //订阅
