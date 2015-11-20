@@ -18,11 +18,18 @@ chatCore.prototype.Connect = function() {
 	this.stompClient.connect("", "", function(frame) {
 		isConnected = true;
 //		stompClient.subscribe(commandUrl, commandRenderFun);
+	},function(){
+			console.log( "connect server fail,try again！");
+			this.Connect();
 	});
 };
 //订阅
 chatCore.prototype.Subscribe = function(subscribeUrl,renderFun) {
-	if(this.isConnected) throw "God，not connect server！";
+	if(this.isConnected) 
+	{
+			console.log( "God，not connect server！");
+			this.Connect();
+	}
 	if(renderFun==null) renderFun = this.defultRenderFun;
 	if(subscribeUrl==null) subscribeUrl = this.subscribeUrl;
 	var subscribeobj = this.stompClient.subscribe(subscribeUrl, renderFun);
@@ -31,7 +38,11 @@ chatCore.prototype.Subscribe = function(subscribeUrl,renderFun) {
 //发送
 chatCore.prototype.Send = function(msgobj,sendUrl)
 {
-	if(this.isConnected) throw "God，not connect server！";
+		if(this.isConnected) 
+		{
+				console.log( "God，not connect server！");
+				this.Connect();
+		}
 	this.stompClient.send(sendUrl, {priority: 9}, msgobj); 
 };
 //默认接受消息渲染函数
