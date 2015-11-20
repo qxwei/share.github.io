@@ -19,8 +19,8 @@ chatCore.prototype.Connect = function() {
 		isConnected = true;
 //		stompClient.subscribe(commandUrl, commandRenderFun);
 	},function(){
-			console.log( "connect server fail,try again！");
-			this.Connect();
+		console.log( "Lost server connect,try again！");
+		this.Connect();
 	});
 };
 //订阅
