@@ -277,11 +277,7 @@ MetronicApp.controller('HallController', function($rootScope, $scope, $http, $ti
        }
     }
     
-    //连接服务器
-	var core = new chatCore('/MessageCenter'); 
-	core.Connect(lostConnextCalkback);
-	
-	//连接断开回调方法
+  //连接断开回调方法
 	function lostConnextCalkback()
 	{
 		core.Connect(lostConnextCalkback);
@@ -303,6 +299,12 @@ MetronicApp.controller('HallController', function($rootScope, $scope, $http, $ti
 		}
 	}
 
+    
+    //连接服务器
+	var core = new chatCore('/MessageCenter'); 
+	core.Connect(lostConnextCalkback);
+	
+	
     //获取用户信息，订阅大厅
     $http({method: 'GET', url: './Index/Hall'}).
     success(function(data, status, headers, config) {
