@@ -21,7 +21,6 @@ chatCore.prototype.Connect = function(lostConnextCalkback) {
 //		stompClient.subscribe(commandUrl, commandRenderFun);
 	},function(){
 		console.log( "Lost server connect,try again！");
-		that.Connect();
 		typeof lostConnextCalkback === "function" ? lostConnextCalkback() : void 0;
 	});
 };

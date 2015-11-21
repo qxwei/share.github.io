@@ -270,8 +270,29 @@ MetronicApp.controller('HallController', function($rootScope, $scope, $http, $ti
     
     //连接服务器
 	var core = new chatCore('/MessageCenter'); 
-	core.Connect();
+	core.Connect(lostConnextCalkback);
 	
+	//连接断开回调方法
+	function lostConnextCalkback()
+	{
+		core.Connect();
+		//释放订阅
+    	for(var i=0;i<$scope.subscribeList.length;i++)
+		{
+    		var item = $scope.subscribeList[i];
+    		 if( item.subscribeObj!=null)
+    			 freedSubscribe.unsubscribe();
+		}
+    	//再次订阅 
+    	for(var i=0;i<$scope.subscribeList.length;i++)
+		{
+    		var item = $scope.subscribeList[i];
+    		 if( item.subscribeUrl!=null)
+			 {
+    			 core.Subscribe(item.subscribeUrl,$scope.saveAndRenderMsg);
+			 }
+		}
+	}
 
     //获取用户信息，订阅大厅
     $http({method: 'GET', url: './Index/Hall'}).
