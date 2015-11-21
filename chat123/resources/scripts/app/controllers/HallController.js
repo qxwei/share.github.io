@@ -280,6 +280,7 @@ MetronicApp.controller('HallController', function($rootScope, $scope, $http, $ti
   //连接断开回调方法
 	function lostConnextCalkback()
 	{
+		console.log('连接失败再次尝试');
 		core.Connect(lostConnextCalkback);
 		//释放订阅
 /*    	for(var i=0;i<$scope.subscribeList.length;i++)
