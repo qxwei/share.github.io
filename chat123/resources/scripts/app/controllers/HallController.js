@@ -19,10 +19,7 @@ function initview()
 	}
 	catch(err)
 	{
-		console.info('set view faile,try a later');
-		$timeout(function(){
-			initview();
-		},5000);
+		initview();
 	}
 }
 MetronicApp.controller('HallController', function($rootScope, $scope, $http, $timeout) {
@@ -280,7 +277,6 @@ MetronicApp.controller('HallController', function($rootScope, $scope, $http, $ti
   //连接断开回调方法
 	function lostConnextCalkback()
 	{
-		console.log('连接失败再次尝试');
 		core.Connect(lostConnextCalkback);
 		//释放订阅
 /*    	for(var i=0;i<$scope.subscribeList.length;i++)
@@ -290,7 +286,7 @@ MetronicApp.controller('HallController', function($rootScope, $scope, $http, $ti
     			 item.subscribeObj.unsubscribe();
 		}*/
     	
-    	core.Subscribe($scope.currentSubscribe,$scope.saveAndRenderMsg);
+    //	core.Subscribe($scope.currentSubscribe,$scope.saveAndRenderMsg);
     /*	//再次订阅 
     	for(var i=0;i<$scope.subscribeList.length;i++)
 		{
