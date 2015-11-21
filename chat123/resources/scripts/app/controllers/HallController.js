@@ -282,13 +282,15 @@ MetronicApp.controller('HallController', function($rootScope, $scope, $http, $ti
 	{
 		core.Connect(lostConnextCalkback);
 		//释放订阅
-    	for(var i=0;i<$scope.subscribeList.length;i++)
+/*    	for(var i=0;i<$scope.subscribeList.length;i++)
 		{
     		var item = $scope.subscribeList[i];
     		 if( item.subscribeObj!=null)
     			 item.subscribeObj.unsubscribe();
-		}
-    	//再次订阅 
+		}*/
+    	
+    	core.Subscribe($scope.currentSubscribe,$scope.saveAndRenderMsg);
+    /*	//再次订阅 
     	for(var i=0;i<$scope.subscribeList.length;i++)
 		{
     		var item = $scope.subscribeList[i];
@@ -296,7 +298,7 @@ MetronicApp.controller('HallController', function($rootScope, $scope, $http, $ti
 			 {
     			 core.Subscribe(item.subscribeUrl,$scope.saveAndRenderMsg);
 			 }
-		}
+		}*/
 	}
 
     
