@@ -1,5 +1,6 @@
 function initview()
 {
+	try{
 	$('#chatdiv').height($(window).height() - 20);
 	if (window.navigator.userAgent.indexOf("Firefox")>=1)
 		{
@@ -15,6 +16,14 @@ function initview()
 	        assign:'chatinput', //给输入框赋值 
 	        path:'https://qxwei.github.io/chat123/resources/img/face/'    //表情图片存放的路径 
 	    });
+	}
+	catch(err)
+	{
+		console.info('set view faile,try a later');
+		$timeout(function(){
+			initview();
+		},5000);
+	}
 }
 MetronicApp.controller('HallController', function($rootScope, $scope, $http, $timeout) {
 	initview();
@@ -281,7 +290,7 @@ MetronicApp.controller('HallController', function($rootScope, $scope, $http, $ti
 		{
     		var item = $scope.subscribeList[i];
     		 if( item.subscribeObj!=null)
-    			  item.subscribeObj.unsubscribe();
+    			 item.subscribeObj.unsubscribe();
 		}
     	//再次订阅 
     	for(var i=0;i<$scope.subscribeList.length;i++)
