@@ -282,9 +282,9 @@ MetronicApp.controller('HallController', function($rootScope, $scope, $http, $ti
 	core.Connect(lostConnextCalkback);
 	
 	//连接断开回调方法
-	function lostConnextCalkback(lostConnextCalkback)
+	function lostConnextCalkback()
 	{
-		core.Connect();
+		core.Connect(lostConnextCalkback);
 		//释放订阅
     	for(var i=0;i<$scope.subscribeList.length;i++)
 		{
