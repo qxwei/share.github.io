@@ -281,7 +281,7 @@ MetronicApp.controller('HallController', function($rootScope, $scope, $http, $ti
 		{
     		var item = $scope.subscribeList[i];
     		 if( item.subscribeObj!=null)
-    			 freedSubscribe.unsubscribe();
+    			  item.subscribeObj.unsubscribe();
 		}
     	//再次订阅 
     	for(var i=0;i<$scope.subscribeList.length;i++)
