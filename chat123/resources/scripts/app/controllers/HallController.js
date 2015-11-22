@@ -286,6 +286,7 @@ MetronicApp.controller('HallController', function($rootScope, $scope, $http, $ti
     }
     
     function ResubscribeCallBack(){
+    	console.error('重新订阅数据');
     	try{
     	if($scope.isNeedResubscribe )
     	{
@@ -318,7 +319,7 @@ MetronicApp.controller('HallController', function($rootScope, $scope, $http, $ti
   //连接断开回调方法
 	function lostConnextCallback()
 	{
-		core.Connect(lostConnextCallback,ResubscribeCallBack);
+		$timeout(function(){core.Connect(lostConnextCallback,ResubscribeCallBack);},5000);
 	}
 
     
