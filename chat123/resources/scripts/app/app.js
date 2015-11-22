@@ -19,7 +19,8 @@ MetronicApp.factory('settings', ['$rootScope', function($rootScope) {
         layout: {
             pageSidebarClosed: false, // sidebar state
             pageAutoScrollOnLoad: 1000 // auto scroll to top on page load
-        }
+        },
+        bacePrefix:'http://localhost:8080/chat123/' 
     };
 
     $rootScope.settings = settings;

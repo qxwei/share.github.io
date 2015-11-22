@@ -9,7 +9,9 @@ var config = {
 		//要显示的最大聊天记录
 		maxMsgShowCount : 20,
 		//消息分发器地址
-		dispatcherAddress:'/app/MsgDispatcher'
+		dispatcherAddress:'/app/MsgDispatcher',
+		//	资源加载前缀
+		bacePrefix:'https://qxwei.github.io/chat123/'
 }
 
 /**

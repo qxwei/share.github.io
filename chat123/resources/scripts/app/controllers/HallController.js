@@ -1,6 +1,5 @@
 function initview()
 {
-	try{
 	$('#chatdiv').height($(window).height() - 20);
 	if (window.navigator.userAgent.indexOf("Firefox")>=1)
 		{
@@ -12,18 +11,27 @@ function initview()
 		$('.chatmsg').height(height*0.7-56);
 		$('#chatinput').height(height*0.3);
 		});
-	 $('.emotion').qqFace({ 
-	        assign:'chatinput', //给输入框赋值 
-	        path:'https://qxwei.github.io/chat123/resources/img/face/'    //表情图片存放的路径 
-	    });
-	}
-	catch(err)
-	{
-		initview();
-	}
+}
+function initqqface($timeout)
+{
+	try{
+			$('.emotion').qqFace({ 
+		        assign:'chatinput', //给输入框赋值 
+		        path:config.bacePrefix+'resources/img/face/'    //表情图片存放的路径 
+		    });
+		}
+		catch(err)
+		{
+			console.error(err);
+			$timeout(function(){
+				initqqface($timeout);
+			},20000);
+		}
 }
 MetronicApp.controller('HallController', function($rootScope, $scope, $http, $timeout) {
+	
 	initview();
+	initqqface($timeout);
   /*  ------------------------------------------------------------------*/
     $scope.User;
     $scope.pageModel={
