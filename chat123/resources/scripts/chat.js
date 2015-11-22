@@ -20,6 +20,7 @@ chatCore.prototype.Connect = function(lostConnextCalkback) {
 		isConnected = true;
 //		stompClient.subscribe(commandUrl, commandRenderFun);
 	},function(){
+		isConnected = false;
 		console.log( "Lost server connect,try again！");
 		typeof lostConnextCalkback === "function" ? lostConnextCalkback() : void 0;
 	});
