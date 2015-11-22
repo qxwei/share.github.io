@@ -324,7 +324,7 @@ MetronicApp.controller('HallController', function($rootScope, $scope, $http, $ti
     
     //连接服务器
 	var core = new chatCore('/MessageCenter'); 
-	core.Connect(lostConnextCalkback);
+	core.Connect(lostConnextCallback);
 	
 	
     //获取用户信息，订阅大厅
