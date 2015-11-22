@@ -432,6 +432,7 @@ MetronicApp.controller('HallController', function($rootScope, $scope, $http, $ti
     	{
     		console.info('enterNewSession fail,try agian.');
     		console.error(err);
+			$scope.subscribeList.pop();
     		$timeout(function(){enterNewSession(isLoadHistory,isInform);}, 4000);
     	}
     }
