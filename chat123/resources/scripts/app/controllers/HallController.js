@@ -319,6 +319,7 @@ MetronicApp.controller('HallController', function($rootScope, $scope, $http, $ti
   //连接断开回调方法
 	function lostConnextCallback()
 	{
+		$scope.isNeedResubscribe = true;
 		$timeout(function(){core.Connect(lostConnextCallback,ResubscribeCallBack);},5000);
 	}
 
