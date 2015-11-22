@@ -294,7 +294,7 @@ MetronicApp.controller('HallController', function($rootScope, $scope, $http, $ti
     			 item.subscribeObj.unsubscribe();
 		}*/
     	
-    //	core.Subscribe($scope.currentSubscribe,$scope.saveAndRenderMsg);
+    	core.Subscribe($scope.currentSubscribe,$scope.saveAndRenderMsg);
     /*	//再次订阅 
     	for(var i=0;i<$scope.subscribeList.length;i++)
 		{
