@@ -1,15 +1,20 @@
 function initview()
 {
-	$('#chatdiv').height($(window).height() - 20);
-	if (window.navigator.userAgent.indexOf("Firefox")>=1)
-		{
-			$('.chatmsg').css('height','58% !important');
-		}
+	var height = $(window).outerHeight()-80;//标准减值50px
+	$('#chatdiv').outerHeight(height);
+	$('.chatmsg').outerHeight(height*0.7);
+	$('#chatinput').outerHeight(height*0.3);
+	height = $('.satisticsbar').outerHeight()+$('.chatmsg').outerHeight()
+	+$('.toolbar').outerHeight()+$('#chatinput').outerHeight();
+	$('#chatdiv').innerHeight(height);
 	$(window).resize(function() {
-		var height = $(window).height() - 20;
-		$('#chatdiv').height(height);
-		$('.chatmsg').height(height*0.7-56);
-		$('#chatinput').height(height*0.3);
+		var height = $(window).outerHeight()-80;
+		$('#chatdiv').innerHeight(height);
+		$('.chatmsg').outerHeight(height*0.7);
+		$('#chatinput').outerHeight(height*0.3);
+		height = $('.satisticsbar').outerHeight()+$('.chatmsg').outerHeight()
+		+$('.toolbar').outerHeight()+$('#chatinput').outerHeight();
+		$('#chatdiv').innerHeight(height);
 		});
 }
 function initqqface($timeout)
@@ -27,6 +32,10 @@ function initqqface($timeout)
 				initqqface($timeout);
 			},20000);
 		}
+}
+function init()
+{
+	
 }
 MetronicApp.controller('HallController', function($rootScope, $scope, $http, $timeout) {
 	
@@ -286,7 +295,7 @@ MetronicApp.controller('HallController', function($rootScope, $scope, $http, $ti
     }
     
     function ResubscribeCallBack(){
-    	console.error('重新订阅数据');
+    	console.info('重新订阅数据');
     	try{
     	if($scope.isNeedResubscribe )
     	{
