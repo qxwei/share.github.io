@@ -293,12 +293,11 @@ MetronicApp.controller('HallController', function($rootScope, $scope, $http, $ti
     		 if( item.subscribeObj!=null)
     			 item.subscribeObj.unsubscribe();
 		}*/
-    	if(core.isConnected){
 		$timeout(function(){
 			core.Subscribe($scope.currentSubscribe,$scope.saveAndRenderMsg);
 		},10000);
     	
-		}
+		
     /*	//再次订阅 
     	for(var i=0;i<$scope.subscribeList.length;i++)
 		{
