@@ -48,6 +48,9 @@ MetronicApp.controller('HallController', function($rootScope, $scope, $http, $ti
     $scope.navtext= '大厅';
     //是否是匿名对聊状态
     $scope.isAnonymousWait = false;
+    
+    //是否需要重新订阅，处理连接断开再次订阅
+    $scope.isNeedResubscribe = false;
     //命令订阅对象，用于释放
     $scope.commandSubscribeObj;
     
@@ -282,31 +285,40 @@ MetronicApp.controller('HallController', function($rootScope, $scope, $http, $ti
        }
     }
     
+    function ResubscribeCallBack(){
+    	try{
+    	if($scope.isNeedResubscribe )
+    	{
+    		//释放订阅
+	    	for(var i=0;i<$scope.subscribeList.length;i++)
+			{
+	    		var item = $scope.subscribeList[i];
+	    		 if( item.subscribeObj!=null)
+	    			 item.subscribeObj.unsubscribe();
+			}
+	    	//再次订阅 
+	    	for(var i=0;i<$scope.subscribeList.length;i++)
+			{
+	    		var item = $scope.subscribeList[i];
+	    		 if( item.subscribeUrl!=null)
+				 {
+	    			 item.subscribeObj = core.Subscribe(item.subscribeUrl,$scope.saveAndRenderMsg);
+				 }
+			}
+    	}
+    	$scope.isNeedResubscribe = false;
+    	}
+    	catch(err)
+    	{
+    		console.error('重新订阅失败');
+    		console.error(err);
+    		lostConnextCallback();
+    	}
+    }
   //连接断开回调方法
-	function lostConnextCalkback()
+	function lostConnextCallback()
 	{
-		core.Connect(lostConnextCalkback);
-		//释放订阅
-/*    	for(var i=0;i<$scope.subscribeList.length;i++)
-		{
-    		var item = $scope.subscribeList[i];
-    		 if( item.subscribeObj!=null)
-    			 item.subscribeObj.unsubscribe();
-		}*/
-		$timeout(function(){
-			core.Subscribe($scope.currentSubscribe,$scope.saveAndRenderMsg);
-		},10000);
-    	
-		
-    /*	//再次订阅 
-    	for(var i=0;i<$scope.subscribeList.length;i++)
-		{
-    		var item = $scope.subscribeList[i];
-    		 if( item.subscribeUrl!=null)
-			 {
-    			 core.Subscribe(item.subscribeUrl,$scope.saveAndRenderMsg);
-			 }
-		}*/
+		core.Connect(lostConnextCallback,ResubscribeCallBack);
 	}
 
     
@@ -432,7 +444,8 @@ MetronicApp.controller('HallController', function($rootScope, $scope, $http, $ti
     	{
     		console.info('enterNewSession fail,try agian.');
     		console.error(err);
-			$scope.subscribeList.pop();
+    		var temp = $scope.subscribeList.pop();
+    		temp.subscribeObj.unsubscribe();
     		$timeout(function(){enterNewSession(isLoadHistory,isInform);}, 4000);
     	}
     }
