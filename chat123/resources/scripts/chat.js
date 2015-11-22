@@ -19,7 +19,7 @@ chatCore.prototype.Connect = function(lostConnextCallback,ResubscribeCallBack) {
 	this.stompClient.connect("", "", function(frame) {
 		isConnected = true;
 		if(ResubscribeCallBack!=null)
-			typeof typeof ResubscribeCallBack === "function" ? ResubscribeCallBack() : void 0; 
+			typeof ResubscribeCallBack === "function" ? ResubscribeCallBack() : void 0; 
 		},function(){
 		console.log( "Lost server connect,try again！");
 		typeof lostConnextCallback === "function" ? lostConnextCallback() : void 0;
