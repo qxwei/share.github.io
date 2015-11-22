@@ -22,7 +22,7 @@ chatCore.prototype.Connect = function(lostConnextCallback,ResubscribeCallBack) {
 			typeof typeof ResubscribeCallBack === "function" ? ResubscribeCallBack() : void 0; 
 		},function(){
 		console.log( "Lost server connect,try again！");
-		typeof lostConnextCallback === "function" ? lostConnextCalkback() : void 0;
+		typeof lostConnextCallback === "function" ? lostConnextCallback() : void 0;
 	});
 };
 //订阅
