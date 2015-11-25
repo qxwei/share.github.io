@@ -1,0 +1,59 @@
+/* here you can put your own css to customize and override the theme */
+
+/***
+Rounded Portlets
+***/
+/*
+.portlet {
+	border-radius: 4px !important;
+}
+
+.portlet .portlet-title {
+	border-radius: 4px 4px 0px 0px !important;
+}
+
+.portlet .portlet-body,
+.portlet .portlet-body .form-actions  {
+	border-radius: 0px 0px 4px 4px !important;
+}
+*/
+
+.topmenu{
+	 background: #227dc5 !important;
+	 border-color: #080808 !important;
+	 color: #84c6ea !important;
+}
+
+::-webkit-scrollbar {  
+  width: 10px;  
+   height: 14px;
+  position:absolute;
+}  
+  
+::-webkit-scrollbar-track {  
+   border-radius: 999px;  
+  border: 0px solid transparent;
+	/* box-shadow: 1px 1px 5px rgba(0,0,0,.2) inset;   */ 
+}  
+
+::-webkit-scrollbar-thumb {  
+  border-radius: 999px;  
+  border: 8px solid transparent; 
+  min-height: 20px !important;  
+  background-clip: content-box;  
+  box-shadow: 0 0 0 8px rgba(0,0,0,.2) inset;  
+}  
+  
+::-webkit-scrollbar-corner {  
+  background: transparent;  
+}  
+.sidebar a{
+	font-family:微软雅黑 !important;
+	
+}
+.ui-scrollbar{
+	  overflow-y:hidden;
+}
+.ui-scrollbar:hover{
+	  overflow-y:auto;
+}
