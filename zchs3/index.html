@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<meta name="description" content="">
+		<meta name="HandheldFriendly" content="True">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no">
+		<link rel="stylesheet" href="css/lib/bootstrap.min.css" type="text/css">
+		<link rel="stylesheet" type="text/css" href="css/bs-is-fun.css" />
+		<link type="text/css" rel="stylesheet" href="http://static.oschina.net/js/syntax-highlighter-2.1.382/styles/shCore.css" />
+		<link type="text/css" rel="stylesheet" href="http://static.oschina.net/js/syntax-highlighter-2.1.382/styles/shThemeDefault.css" />
+		<style>
+		</style>
+	</head>
+
+	<body>
+		<div class="container-fluid">
+			<a class="btn btn-primary" data-toggle="modal" data-target="#myModal">点我弹出 Modal login</a>
+			<a class="btn btn-primary" data-toggle="modal" data-target="#myModalNext">点我弹出 Modal step</a>
+		</div>
+		<div class="modal fade" id="myModal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<div>
+							<img class="img-responsive" src="img/profilepicture.jpg" data-dismiss="modal" aria-label="Close" />
+						</div>
+					</div>
+					<div class="modal-body">
+						<div class="container-fluid">
+							<form>
+								<div class="input-group">
+									<span class="input-group-addon glyphicon glyphicon-user" id="basic-addon1"></span>
+									<input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
+								</div>
+								<div class="input-group">
+									<span class="input-group-addon glyphicon glyphicon-lock" id="basic-addon1"></span>
+									<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+								</div>
+								<div class="checkbox-inline">
+									<label>
+										<input type="checkbox"> Check me out
+									</label>
+								</div>
+								<button type="submit" class="btn btn-primary pull-right">login</button>
+							</form>
+						</div>
+
+					</div>
+					<div class="modal-footer">
+						<p class="text-center">Not a registered user yet?<a>Sign up now!</a>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal fade" id="myModalNext">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+						</button>
+						<h4 class="modal-title">Modal title</h4>
+						<ul class="nav nav-pills nav-justified step step-arrow">
+							<li class="active"><a>step1</a>
+							</li>
+							<li><a>step2</a>
+							</li>
+							<li><a>step3</a>
+							</li>
+						</ul>
+						<ul class="nav nav-pills nav-justified step step-square">
+							<li class="active"><a>step1</a>
+							</li>
+							<li><a>step2</a>
+							</li>
+							<li><a>step3</a>
+							</li>
+						</ul>
+						<ul class="nav nav-pills nav-justified step step-round">
+							<li class="active"><a>step1</a>
+							</li>
+							<li><a>step2</a>
+							</li>
+							<li><a>step3</a>
+							</li>
+						</ul>
+						<ul class="nav nav-pills nav-justified step step-progress">
+							<li class="active"><a>step1<span class="caret"></span></a>
+							</li>
+							<li><a>step2<span class="caret"></span></a>
+							</li>
+							<li><a>step3<span class="caret"></span></a>
+							</li>
+							<li><a>step4<span class="caret"></span></a>
+							</li>
+							<li><a>step5<span class="caret"></span></a>
+							</li>
+							<li><a>step6<span class="caret"></span></a>
+							</li>
+						</ul>
+					</div>
+					<div class="modal-body">
+						<div class="container-fluid">
+							<div class="carousel slide" data-ride="carousel" data-interval="false" data-wrap="false">
+
+								<!-- Wrapper for slides -->
+								<div class="carousel-inner" role="listbox">
+									<div class="item active">
+										<p>步骤一</p>
+									</div>
+									<div class="item">
+										<p>步骤二</p>
+									</div>
+									<div class="item">
+										<p>步骤三</p>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default MN-pre">prev</button>
+						<button type="button" class="btn btn-primary MN-next">next</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-8">
+					<div class="page-header">
+						<h3>
+							基本引入
+						</h3>
+					</div>
+					<pre class='brush: xml'>
+						<link rel="stylesheet" type="text/css" href="css/bs-is-fun.css" />
+					</pre>
+				</div>
+				<div class="col-xs-8">
+					<div class="page-header">
+						<h3>STEP<small>Used nav nav-pills nav-justified </small></h3>
+					</div>
+					<p>
+						步骤，可用于注册，登记，相关的页面！
+					</p>
+					<h5>
+						示例及用法：
+					</h5>
+					<p>1 arrow</p>
+					<ul class="nav nav-pills nav-justified step step-arrow">
+						<li class="active"><a>step1</a>
+						</li>
+						<li><a>step2</a>
+						</li>
+						<li><a>step3</a>
+						</li>
+					</ul>
+					<pre class='brush: xml'>
+						<ul class="nav nav-pills nav-justified step step-arrow">
+							<li class="active">
+								<a>step1</a>
+							</li>
+							<li>
+								<a>step2</a>
+							</li>
+							<li>
+								<a>step3</a>
+							</li>
+						</ul>
+					</pre>
+					<hr />
+					<p>2 square</p>
+					<ul class="nav nav-pills nav-justified step step-square">
+						<li class="active"><a>step1</a>
+						</li>
+						<li><a>step2</a>
+						</li>
+						<li><a>step3</a>
+						</li>
+					</ul>
+					<pre class='brush: xml'>
+					<ul class="nav nav-pills nav-justified step step-square">
+						<li class="active"><a>step1</a>
+						</li>
+						<li><a>step2</a>
+						</li>
+						<li><a>step3</a>
+						</li>
+					</ul>						
+					</pre>
+					<hr />
+					<p>3 round</p>
+					<ul class="nav nav-pills nav-justified step step-round">
+						<li class="active"><a>step1</a>
+						</li>
+						<li><a>step2</a>
+						</li>
+						<li><a>step3</a>
+						</li>
+					</ul>
+					<pre class='brush: xml'>
+					<ul class="nav nav-pills nav-justified step step-round">
+						<li class="active"><a>step1</a>
+						</li>
+						<li><a>step2</a>
+						</li>
+						<li><a>step3</a>
+						</li>
+					</ul>						
+					</pre>
+					<hr />
+					<p>4 progress</p>
+					<ul class="nav nav-pills nav-justified step step-progress">
+						<li class="active"><a>step1<span class="caret"></span></a>
+						</li>
+						<li><a>step2<span class="caret"></span></a>
+						</li>
+						<li><a>step3<span class="caret"></span></a>
+						</li>
+						<li><a>step4<span class="caret"></span></a>
+						</li>
+						<li><a>step5<span class="caret"></span></a>
+						</li>
+						<li><a>step6<span class="caret"></span></a>
+						</li>
+					</ul>
+					<pre class='brush: xml'>
+					<ul class="nav nav-pills nav-justified step step-progress">
+						<li class="active"><a>step1<span class="caret"></span></a>
+						</li>
+						<li><a>step2<span class="caret"></span></a>
+						</li>
+						<li><a>step3<span class="caret"></span></a>
+						</li>
+						<li><a>step4<span class="caret"></span></a>
+						</li>
+						<li><a>step5<span class="caret"></span></a>
+						</li>
+						<li><a>step6<span class="caret"></span></a>
+						</li>
+					</ul>						
+					</pre>
+					<hr />
+				</div>
+			</div>
+		</div>
+		<script src="js/lib/jquery-1.11.0.js"></script>
+		<script src="js/lib/bootstrap.min.js"></script>
+		<script type="text/javascript" src="http://static.oschina.net/js/syntax-highlighter-2.1.382/scripts/brush.js"></script>
+		<script>
+			$(function() {
+				SyntaxHighlighter.config.clipboardSwf = 'http://static.oschina.net/js/syntax-highlighter-2.1.382/scripts/clipboard.swf';
+				SyntaxHighlighter.all();
+				//myModalNext 
+				$("#myModalNext .modal-footer button").each(function() {
+					$(this).click(function() {
+						if ($(this).hasClass("MN-next")) {
+							$("#myModalNext .carousel").carousel('next');
+							$("#myModalNext .step li.active").next().addClass("active");
+						} else {
+							$("#myModalNext .carousel").carousel('prev');
+							if ($("#myModalNext .step li").length > 1) {
+								$($($("#myModalNext .step li.active"))[$("#myModalNext .step li.active").length - 1]).removeClass("active")
+							}
+						}
+					})
+				})
+			})
+		</script>
+	</body>
+
+</html>
